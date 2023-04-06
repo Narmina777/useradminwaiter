@@ -1,32 +1,137 @@
-# Prerequisites
-*.d
+using System;
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+namespace ConsoleApp_N
+{
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            User user = new User();
+            user.Name = "Jhon 0";
+            user.Password = "Github";
+            user.Introduce();
 
-# Precompiled Headers
-*.gch
-*.pch
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
 
-# Fortran module files
-*.mod
-*.smod
+            Admin admin = new Admin();
+            admin.Name = "Jhon 1";
+            admin.Password = "45876";
+            admin.Introduce();
+            admin.GetReport();
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
 
-# Executables
-*.exe
-*.out
-*.app
+
+            Waiter waiter = new Waiter();
+            waiter.Name = "Jhon 2";
+            waiter.Password = "12Git876";
+            waiter.Introduce();
+            waiter.TakeOrder();
+            waiter.GiveMenu();
+
+        }
+    }
+
+    public class User
+    { 
+        public string Name { get; set; }
+        public string Password { get; set; }
+        public virtual void Introduce()
+        {
+            Console.WriteLine("My name is:");
+            Console.WriteLine(Name);
+        }
+
+        
+    }
+
+     public class Admin:User
+     {
+        public override void Introduce()
+        {
+            Console.WriteLine("My name is:");
+            Console.WriteLine(Name);
+            Console.WriteLine("I'm ready take your Report:");
+        }
+        public void GetReport()
+        {
+
+        }
+        
+
+     }
+    public class Waiter : User
+    {
+        //public string[]  = new string[] 
+
+    
+        public override void Introduce()
+        {
+            Console.WriteLine("My name is:");
+            Console.WriteLine(Name);
+            Console.WriteLine("I'm a waitor");
+            Console.WriteLine("I'm ready take your Order:");
+        }
+        public void GiveMenu()
+        {
+            string[] arrayofdish = { "sushi", "pizza" };
+            int[] prices = { 25, 26 };
+            for (int i = 0; i < arrayofdish.Length; i++) 
+            {
+                Console.WriteLine(arrayofdish[i] + "-" + prices[i]);
+
+            }
+
+
+        }
+        public void TakeOrder(string dishname , int quantity)
+        {
+            string[] arrayofdish = { "sushi", "pizza" };
+            int[] prices = { 25, 26 };
+
+            int price = 0;
+
+            
+            //..
+
+            Console.WriteLine(quantity * price);
+
+        }
+
+
+     }
+
+    
+        //static void Main(string[] args)
+        //{
+        //    Console.Write("Enter your password: ");
+        //    string password = Console.ReadLine();
+
+        //    bool hasUpperLetter = false;
+        //    bool hasLowerLetter = false;
+        //    bool hasNumber = false;
+
+        //    foreach (char character in password)
+        //    {
+        //        if (Char.IsUpper(character))
+        //        {
+        //            hasUpperLetter = true;
+        //        }
+        //        else if (Char.IsLower(character))
+        //        {
+        //            hasLowerLetter = true;
+        //        }
+        //        else if (Char.IsDigit(character))
+        //        {
+        //            hasNumber = true;
+        //        }
+        //        {
+        //            Console.WriteLine("....");
+        //        }
+        //    }
+            
+        //}
+    
+
+}
+
